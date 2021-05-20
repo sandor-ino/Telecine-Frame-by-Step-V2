@@ -7,4 +7,4 @@ Manage:
 - Timed clicks in other application (Mode B)
 - verification, crop and align the sequence of images during or after importing
 - Rename the entire sequence
-- Export video to various sizes 
+- Create the video of the sequence in various formats 
