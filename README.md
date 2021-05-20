@@ -1,6 +1,8 @@
 # sandor-ino/Frame-by-Step-V2
-Telecine Frame by Step V2 project
-Program to convert super8 or Normal8 movies to digital.
+Telecine Frame by Step V2 project 
+
+Program to convert super8 or Normal8 movies to digital
+
 Manage:
 - Arduino Stepper motor movement and LED light
 - USB camera input (MODE A)
