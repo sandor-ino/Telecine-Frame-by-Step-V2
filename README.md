@@ -1,6 +1,6 @@
 # Telecine-Frame-by-Step-V2
 
-Telecine Frame by Step V2 project New graphics and more (only in Italian language) 
+Telecine Frame by Step V2 project new graphics and more (only in Italian language) 
 
 Program to convert super8 or Normal8 movies to digital (only video)
 
