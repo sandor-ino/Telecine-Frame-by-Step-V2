@@ -64,6 +64,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Movie 3.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
       <HintPath>packages\Accord.3.8.0\lib\net462\Accord.dll</HintPath>
@@ -518,6 +521,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License-LGPL.txt" />
+    <Content Include="Movie 3.ico" />
+    <None Include="Resources\N8NOC.png" />
+    <None Include="Resources\S8NOC.png" />
     <None Include="Resources\wait_gif.gif" />
     <None Include="Resources\wait_gif11.jpg" />
     <None Include="Resources\wait_gif1.jpg" />

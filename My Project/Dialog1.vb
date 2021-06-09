@@ -1,6 +1,4 @@
-﻿Imports System.Windows.Forms
-
-Public Class Dialog1
+﻿Public Class Dialog1
     Private currentX As Integer, currentY As Integer
     Private isDragging As Boolean = False
     Dim cox As Integer = 0

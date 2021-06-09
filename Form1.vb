@@ -1,10 +1,10 @@
 ﻿
 #Region "INIZIALIZAZIONE DATI"
+Imports System.Drawing.Drawing2D
 Imports System.IO
-Imports System.Threading
 Imports System.IO.Ports
 Imports System.Math
-Imports System.Drawing.Drawing2D
+Imports System.Threading
 Imports Accord.Video.FFMPEG
 Imports AForge
 Imports AForge.Imaging
@@ -46,7 +46,7 @@ Public Class Form1
     Dim CROPX, CROPY, CROPB, CROPH As Integer
     Dim esposizione, contrasto As Integer
     Dim BLCX, BLCY As Integer ', BLCH, BLCB
-    Dim BLX, BLY, BLB, BLH As Integer
+    Dim BLX, BLY, BLB, BLH, BLBR As Integer
     Dim BLXV, BLYV, BLYHV As Integer
     Dim X1, Y1, X2, Y2 As Integer
     Dim ZOOMX, ZOOMY As Decimal
@@ -1800,19 +1800,19 @@ Public Class Form1
                             Dim ratio As String = ListBox8.SelectedItem.ToString()
                             Dim split2 = ratio.Split(".", 2, StringSplitOptions.RemoveEmptyEntries)
                             Dim no As String = (TextBox14.Text & "\" & TextBox13.Text & "_" & NumericUpDown7.Text.PadLeft(5, "0")) & "." & split2(1)
-                            Dim croBitmap As New Bitmap(IMAGEN, CROPMB, CROPMH)
+                            Dim croBitmap As New Bitmap(CROPMB, CROPMH)
                             Dim p As Graphics = Graphics.FromImage(croBitmap)
                             p.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
                             p.PixelOffsetMode = Drawing2D.PixelOffsetMode.HighQuality
                             p.CompositingQuality = Drawing2D.CompositingQuality.HighQuality
                             If CheckBox13.Checked = True And CheckBox14.Checked = False Then
-                                p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY - CROPMY, CROPMB, CROPMH, GraphicsUnit.Pixel)
+                                p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY - CROPMY - CInt(IMGRCH / 2), CROPMB, CROPMH, GraphicsUnit.Pixel)
                             End If
                             If CheckBox13.Checked = True And CheckBox14.Checked = True Or CheckBox13.Checked = False And CheckBox14.Checked = False Then
-                                p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH / 2) - CROPMY, CROPMB, CROPMH, GraphicsUnit.Pixel)
+                                p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH / 2) - CROPMY - CInt(IMGRCH / 2), CROPMB, CROPMH, GraphicsUnit.Pixel)
                             End If
                             If CheckBox13.Checked = False And CheckBox14.Checked = True Then
-                                p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY + BLH - CROPMY, CROPMB, CROPMH, GraphicsUnit.Pixel)
+                                p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY + BLH - CROPMY - CInt(IMGRCH / 2), CROPMB, CROPMH, GraphicsUnit.Pixel)
                             End If
                             Select Case split2(1)
                                 Case "jpg", "JPG"
@@ -1907,13 +1907,13 @@ Public Class Form1
                                     p.PixelOffsetMode = Drawing2D.PixelOffsetMode.HighQuality
                                     p.CompositingQuality = Drawing2D.CompositingQuality.HighQuality
                                     If CheckBox13.Checked = True And CheckBox14.Checked = False Then
-                                        p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY - CROPMY, CROPMB, CROPMH, GraphicsUnit.Pixel)
+                                        p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY - CROPMY - CInt(IMGRCH / 2), CROPMB, CROPMH, GraphicsUnit.Pixel)
                                     End If
                                     If CheckBox13.Checked = True And CheckBox14.Checked = True Or CheckBox13.Checked = False And CheckBox14.Checked = False Then
-                                        p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH / 2) - CROPMY, CROPMB, CROPMH, GraphicsUnit.Pixel)
+                                        p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH / 2) - CROPMY - CInt(IMGRCH / 2), CROPMB, CROPMH, GraphicsUnit.Pixel)
                                     End If
                                     If CheckBox13.Checked = False And CheckBox14.Checked = True Then
-                                        p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY + BLH - CROPMY, CROPMB, CROPMH, GraphicsUnit.Pixel)
+                                        p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH), IMGRCX + BLX + CROPMX, IMGRCY + BLY + BLH - CROPMY - CInt(IMGRCH / 2), CROPMB, CROPMH, GraphicsUnit.Pixel)
                                     End If
                                     'Thread.Sleep(100)
                                     Application.DoEvents()
@@ -2068,6 +2068,7 @@ Public Class Form1
                         Dim filess = Directory.GetFiles(TextBox14.Text)
                         Label31.Text = filess.Length & " Files "
                     End If
+                    If PictureBox24.Image IsNot Nothing Then PictureBox24.Image = Nothing
                 Case Windows.Forms.DialogResult.No
                     Exit Sub
             End Select
@@ -2077,20 +2078,59 @@ Public Class Form1
     Private Sub Button97_Click(sender As Object, e As EventArgs) Handles Button97.Click
         angolo += 0.1
         rotate = True
+        If angolo <= -0.1 Or angolo >= 0.1 Then
+            If angolo <= -0.1 Then
+                Button75.Text = -angolo * 10
+            End If
+            If angolo >= 0.1 Then
+                Button97.Text = angolo * 10
+            End If
+
+        Else
+            Button75.Text = Nothing
+            Button97.Text = Nothing
+            angolo = 0
+
+
+
+        End If
+
+
         ELABORA()
     End Sub
     ' RUOTA IMMAGINE ORARIO
     Private Sub Button75_Click(sender As Object, e As EventArgs) Handles Button75.Click
         angolo -= 0.1
         rotate = True
+        If angolo <= -0.1 Or angolo >= 0.1 Then
+            If angolo <= -0.1 Then
+                Button75.Text = -angolo * 10
+            End If
+            If angolo >= 0.1 Then
+                Button97.Text = angolo * 10
+            End If
+        Else
+            angolo = 0
+            Button75.Text = Nothing
+            Button97.Text = Nothing
+
+        End If
         ELABORA()
     End Sub
     ' RIPRISTINA MODIFICHE IMMAGINE
     Private Sub Button76_Click(sender As Object, e As EventArgs) Handles Button76.Click
-        FLPY = False
-        FLPX = False
+        If FLPY = True Then
+            CheckBox4.Checked = CheckState.Unchecked
+            FLPY = False
+        End If
+        If FLPX = True Then
+            CheckBox19.CheckState = CheckState.Unchecked
+            FLPX = False
+        End If
         rotate = False
         angolo = 0
+        Button97.Text = Nothing
+        Button75.Text = Nothing
         ELABORA()
     End Sub
     ' SELEZIONA E VISUALIZZA IMMAGINI CARTELLA DESTINAZIONE
@@ -4535,15 +4575,13 @@ Public Class Form1
         ' verifica se in modalita' immagini
         If picmod = True Then
 
-
-
             Try
-                    If IMAGEN IsNot Nothing Then IMAGEN.Dispose()
-                    IMAGEN = Image.FromFile(TextBox12.Text & "/" & ListBox8.SelectedItem)
-                    If original IsNot Nothing Then original.Dispose()
-                    original = IMAGEN.Clone
-                Catch ex As Exception
-                End Try
+                If IMAGEN IsNot Nothing Then IMAGEN.Dispose()
+                IMAGEN = Image.FromFile(TextBox12.Text & "/" & ListBox8.SelectedItem)
+                If original IsNot Nothing Then original.Dispose()
+                original = IMAGEN.Clone
+            Catch ex As Exception
+            End Try
 
 
             If IMAGEN IsNot Nothing Then
@@ -4569,6 +4607,8 @@ Public Class Form1
                 End If
 
                 If ZOOMON = True Then
+                    If original IsNot Nothing Then original.Dispose()
+                    original = IMAGEN.Clone
                     ZOOMVER()
                     'PictureBox22.BackgroundImage = IMAGEN
                 Else
@@ -4584,7 +4624,7 @@ Public Class Form1
 #End Region
 #Region "RIFERIMENTI"
 
-            If AVA = True Then
+        If AVA = True Then
             'Dim D As Integer = 0
             'Do While D <= 10
             '    Application.DoEvents()
@@ -4641,283 +4681,362 @@ Public Class Form1
 
                     ptbH = PictureBox22.Height
                     ptbB = PictureBox22.Width
-                        imgB = PictureBox22.BackgroundImage.Width
-                        imgH = PictureBox22.BackgroundImage.Height
-                        PTBRCX = rectCropArea.X
-                        PTBRCY = rectCropArea.Y
-                        PTBRCB = rectCropArea.Width
-                        PTBRCH = rectCropArea.Height
-                        IMGRCX = PTBRCX * (imgB / ptbB)
-                        IMGRCY = PTBRCY * (imgH / ptbH)
-                        IMGRCB = PTBRCB * (imgB / ptbB)
-                        IMGRCH = PTBRCH * (imgH / ptbH)
+                    imgB = PictureBox22.BackgroundImage.Width
+                    imgH = PictureBox22.BackgroundImage.Height
+                    PTBRCX = rectCropArea.X
+                    PTBRCY = rectCropArea.Y
+                    PTBRCB = rectCropArea.Width
+                    PTBRCH = rectCropArea.Height
+                    IMGRCX = PTBRCX * (imgB / ptbB)
+                    IMGRCY = PTBRCY * (imgH / ptbH)
+                    IMGRCB = PTBRCB * (imgB / ptbB)
+                    IMGRCH = PTBRCH * (imgH / ptbH)
+
+                    Dim IMGRCB_2 As Integer = IMGRCB / 3
+                    Dim IMGRCY_2 As Integer = IMGRCY / 2
+                    Dim IMGRCH_2 As Integer = IMGRCH * 2
+                    Dim IMGRCH_3 As Integer = IMGRCH / 2
+
                     bit = New Bitmap(IMAGEN, IMAGEN.Width, IMAGEN.Height)
-                    Dim cropBitmap As New Bitmap(IMGRCB, IMGRCH)
-                        Dim H As Graphics = Graphics.FromImage(cropBitmap)
-                        H.InterpolationMode = InterpolationMode.HighQualityBicubic
-                        H.PixelOffsetMode = PixelOffsetMode.HighQuality
-                        H.CompositingQuality = CompositingQuality.HighQuality
-                        H.DrawImage(bit, New Rectangle(0, 0, CInt(IMGRCB), CInt(IMGRCH)),
-                                                                        IMGRCX, IMGRCY, IMGRCB, IMGRCH, GraphicsUnit.Pixel)
+                    Dim cropBitmap As New Bitmap(IMGRCB, IMGRCH_2)
+                    Dim H As Graphics = Graphics.FromImage(cropBitmap)
+                    H.InterpolationMode = InterpolationMode.HighQualityBicubic
+                    H.PixelOffsetMode = PixelOffsetMode.HighQuality
+                    H.CompositingQuality = CompositingQuality.HighQuality
+                    H.DrawImage(bit, New Rectangle(0, 0, IMGRCB, IMGRCH_2), (IMGRCX), (IMGRCY - IMGRCH_3), IMGRCB, IMGRCH_2, GraphicsUnit.Pixel)
 
 #End Region
 #Region "FILTRI"
-                        ' applica filtri estrazione blob
-                        'Dim sample As Bitmap = CType(cropBitmap.Clone(), Bitmap)
-                        Dim sample As Bitmap = DirectCast(cropBitmap.Clone, Bitmap)
-                        Dim gray As Grayscale = New Grayscale(0.2125, 0.7154, 0.0721)
-                        Dim filterInvert As Invert = New Invert()
-                        Dim FILTRI = New FiltersSequence(New BrightnessCorrection(esposizione),
-                                 New ContrastCorrection(contrasto),
-                                 New SISThreshold()) ' soglia bianco e nero
-                        Dim filter4 As Erosion = New Erosion()
-                        Dim filter5 As Erosion3x3 = New Erosion3x3()
-                        Dim gray1 As Bitmap = gray.Apply(sample.Clone)
-                        ' sample.Dispose()
-                        Dim gray2 As Bitmap
-                        Dim gray3 As Bitmap
-                        Dim gray4 As Bitmap
-                        Dim gray5 As Bitmap
-                        If CheckBox10.Checked = True Then
-                            'filtro inverti
-                            gray2 = filterInvert.Apply(gray1)
-                            'filtro erosion
-                            If CheckBox12.Checked = True Then
-                                gray3 = filter4.Apply(gray2)
-                            Else
-                                gray3 = gray2
-                            End If
-                            'filtro erosion3x3
-                            If CheckBox11.Checked = True Then
-                                gray4 = filter5.Apply(gray3)
-                            Else
-                                gray4 = gray3
-                            End If
-                            gray5 = FILTRI.Apply(gray4)
+                    ' applica filtri estrazione blob
+                    Dim sample As New Bitmap(IMGRCB_2, IMGRCH_2)
+                    Dim J As Graphics = Graphics.FromImage(sample)
+                    J.InterpolationMode = InterpolationMode.HighQualityBicubic
+                    J.PixelOffsetMode = PixelOffsetMode.HighQuality
+                    J.CompositingQuality = CompositingQuality.HighQuality
+                    J.DrawImage(bit, New Rectangle(0, 0, IMGRCB_2, IMGRCH_2), (IMGRCX), (IMGRCY - IMGRCH_3), IMGRCB_2, IMGRCH_2, GraphicsUnit.Pixel)
+
+                    Dim gray As Grayscale = New Grayscale(0.2125, 0.7154, 0.0721)
+                    Dim filterInvert As Invert = New Invert()
+                    Dim FILTRI = New FiltersSequence(New BrightnessCorrection(esposizione),
+                             New ContrastCorrection(contrasto),
+                             New SISThreshold()) ' soglia bianco e nero
+                    Dim filter4 As Erosion = New Erosion()
+                    Dim filter5 As Erosion3x3 = New Erosion3x3()
+                    Dim gray1 As Bitmap = gray.Apply(sample.Clone)
+                    ' sample.Dispose()
+                    Dim gray2 As Bitmap
+                    Dim gray3 As Bitmap
+                    Dim gray4 As Bitmap
+                    Dim gray5 As Bitmap
+                    If CheckBox10.Checked = True Then
+                        'filtro inverti
+                        gray2 = filterInvert.Apply(gray1)
+                        'filtro erosion
+                        If CheckBox12.Checked = True Then
+                            gray3 = filter4.Apply(gray2)
                         Else
-                            'filtro erosion
-                            If CheckBox12.Checked = True Then
-                                gray2 = filter4.Apply(gray1)
-                            Else
-                                gray2 = gray1
-                            End If
-                            'filtro erosion3x3
-                            If CheckBox11.Checked = True Then
-                                gray3 = filter5.Apply(gray2)
-                            Else
-                                gray3 = gray2
-                            End If
-                            gray5 = FILTRI.Apply(gray3)
+                            gray3 = gray2
                         End If
-                        Dim grayImage As Bitmap = gray5
+                        'filtro erosion3x3
+                        If CheckBox11.Checked = True Then
+                            gray4 = filter5.Apply(gray3)
+                        Else
+                            gray4 = gray3
+                        End If
+                        gray5 = FILTRI.Apply(gray4)
+                    Else
+                        'filtro erosion
+                        If CheckBox12.Checked = True Then
+                            gray2 = filter4.Apply(gray1)
+                        Else
+                            gray2 = gray1
+                        End If
+                        'filtro erosion3x3
+                        If CheckBox11.Checked = True Then
+                            gray3 = filter5.Apply(gray2)
+                        Else
+                            gray3 = gray2
+                        End If
+                        gray5 = FILTRI.Apply(gray3)
+                    End If
+                    Dim grayImage As Bitmap = gray5
 
 #End Region
 #Region "ESTRAI BLOB"
-                        ' elaborazione blob
-                        ' dimensione minima blob
-                        Dim blobCounter As BlobCounter = New BlobCounter With {
+                    ' elaborazione blob
+                    ' dimensione minima blob
+                    Dim blobCounter As BlobCounter = New BlobCounter With {
                         .FilterBlobs = True,
                         .MinWidth = grayImage.Width / 3,
                         .MinHeight = grayImage.Height / 3
                     }
-                        blobCounter.ProcessImage(grayImage)
-                        Dim blobs As Blob() = blobCounter.GetObjectsInformation()
-                        Dim DRW As Bitmap = New Bitmap(cropBitmap.Width, cropBitmap.Height)
-                        Dim g As Graphics = Graphics.FromImage(DRW)
-                        Dim f As Graphics = Graphics.FromImage(DRW)
-                        Dim v As Graphics = Graphics.FromImage(DRW)
-                        Dim o As Graphics = Graphics.FromImage(DRW)
-                        Dim pic2 As Bitmap = New Bitmap(grayImage.Width, grayImage.Height)
-                        Dim rectangle2 = New Rectangle(0, IMGRCH / 2, IMGRCB, 1)
-                        Dim rectangle3 As Rectangle
-                        For Each blob As Blob In blobs
-                            Dim edgePoints As List(Of IntPoint) = blobCounter.GetBlobsEdgePoints(blob)
-                            For Each point As IntPoint In edgePoints
-                                ' disegna sagoma blobs 
-                                pic2.SetPixel(point.X, point.Y, Color.Red)
-                            Next
-                            ' disegna rettangolo blob
-                            g.DrawRectangle(New Pen(Color.Yellow, 8), blob.Rectangle)
-                            BLX = blob.Rectangle.X
-                            BLY = blob.Rectangle.Y
-                            BLB = blob.Rectangle.Width
-                            BLH = blob.Rectangle.Height
-                            BLCX = BLX + (BLB / 2)
-                            BLCY = BLY + (BLH / 2)
+                    blobCounter.ProcessImage(grayImage)
+                    Dim blobs As Blob() = blobCounter.GetObjectsInformation()
+
+                    Dim DRW As Bitmap = New Bitmap(cropBitmap.Width, cropBitmap.Height)
+                    Dim g As Graphics = Graphics.FromImage(DRW)
+                    Dim f As Graphics = Graphics.FromImage(DRW)
+                    Dim v As Graphics = Graphics.FromImage(DRW)
+                    Dim o As Graphics = Graphics.FromImage(DRW)
+                    Dim pic2 As Bitmap = New Bitmap(grayImage.Width, grayImage.Height)
+
+                    'riferimento rettangolo controllo visivo
+                    Dim rectangle2 As Rectangle
+                    If CheckBox13.Checked = True And CheckBox14.Checked = False Then
+                        rectangle2 = New Rectangle(0, IMGRCH / 2, IMGRCB, 1)
+                    End If
+                    If CheckBox13.Checked = True And CheckBox14.Checked = True Or CheckBox13.Checked = False And CheckBox14.Checked = False Then
+                        rectangle2 = New Rectangle(0, IMGRCH, IMGRCB, 1)
+                    End If
+                    If CheckBox13.Checked = False And CheckBox14.Checked = True Then
+                        rectangle2 = New Rectangle(0, IMGRCH + (IMGRCH / 2), IMGRCB, 1)
+                    End If
+
+                    Dim rectangle3 As Rectangle
+                    For Each blob As Blob In blobs
+                        Dim edgePoints As List(Of IntPoint) = blobCounter.GetBlobsEdgePoints(blob)
+                        For Each point As IntPoint In edgePoints
+                            ' disegna sagoma blobs 
+                            pic2.SetPixel(point.X, point.Y, Color.Red)
                         Next
+
+                        BLX = blob.Rectangle.X
+                        BLY = blob.Rectangle.Y
+                        BLB = blob.Rectangle.Height * 0.91 / 1.14 'blob.Rectangle.Width
+                        BLH = blob.Rectangle.Height
+                        BLBR = blob.Rectangle.Width
+                        BLCX = BLX + (BLB / 2)
+                        BLCY = BLY + (BLH / 2)
+                        'disegna rettangolo blob
+                        Using drawLine As New Pen(Color.Yellow, 6)
+                            drawLine.DashStyle = DashStyle.Dash
+                            g.DrawRectangle(drawLine, BLX, BLY, BLB, BLH)
+                        End Using
+
+
+
+
+                    Next
 
 #End Region
 #Region "CONTROLLO VISIVO, CONTEGGIO, VERIFICA POSIZIONE E SPOSTAMENTO"
-                        ' disegna angoli di riferimento rettangolo ritaglio 
-                        If CheckBox7.Checked = True Then
-                            If CheckBox13.Checked = True And CheckBox14.Checked = False Then
-                                If CheckBox6.Checked <> True Then
-                                    Dim r As New Rectangle(BLX + 5, BLY + 5, 50, 50)
-                                    o.DrawImage(My.Resources.ALTR, r)
-                                End If
-                            End If
-                            If CheckBox13.Checked = False And CheckBox14.Checked = True Then
-                                If CheckBox6.Checked <> True Then
-                                    Dim r As New Rectangle(BLX + 5, BLY + BLH - 55, 50, 50)
-                                    o.DrawImage(My.Resources.BASSR, r)
-                                End If
-                            End If
-                        End If
-
-                        Dim pic3 As Bitmap = New Bitmap(bit.Width, bit.Height)
-
-                        ' disegna rettangolo blob in picturebox
-                        If CheckBox6.Checked = True Then
-                            If CheckBox7.Checked = True Or CheckBox6.Checked = True Then
-                                Dim k As Graphics = Graphics.FromImage(pic3)
-                                k.FillRectangle(Brushes.Yellow, IMGRCX + BLX, IMGRCY + BLY, BLB, BLH)
-                                If CheckBox13.Checked = True And CheckBox14.Checked = False Then
-                                    Dim r As New Rectangle(IMGRCX + BLX + 5, IMGRCY + BLY + 5, 50, 50)
-                                    k.DrawImage(My.Resources.ALTR, r)
-                                End If
-                                If CheckBox13.Checked = False And CheckBox14.Checked = True Then
-                                    Dim r As New Rectangle(IMGRCX + BLX + 5, IMGRCY + BLY + BLH - 55, 50, 50)
-                                    k.DrawImage(My.Resources.BASSR, r)
-                                End If
-                                k.Dispose()
-                            End If
-                        End If
-                        ' disegna rettangolo ritaglio e maschera
-                        If CheckBox7.Checked = True Then
-                            Dim u As Graphics = Graphics.FromImage(pic3)
-                            Dim z1 As Graphics = Graphics.FromImage(pic3)
-                            Dim z2 As Graphics = Graphics.FromImage(pic3)
-                            Dim z3 As Graphics = Graphics.FromImage(pic3)
-                            Dim z4 As Graphics = Graphics.FromImage(pic3)
-                            Dim z5 As Graphics = Graphics.FromImage(pic3)
-                            If CheckBox13.Checked = True And CheckBox14.Checked = False Then
-                                u.DrawRectangle(New Pen(Color.Red, 8), IMGRCX + BLX + CROPMX, IMGRCY + BLY - CROPMY, CROPMB, CROPMH)
-                                If CheckBox16.Checked = True Then
-                                    z1.FillRectangle(Brushes.Black, 0, 0, IMGRCX + BLX + CROPMX, imgH)
-                                    z2.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, 0, CROPMB, IMGRCY - CROPMY + BLY)
-                                    z3.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX + CROPMB, 0, imgB - CROPMB - CROPMX, imgH)
-                                    z4.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, IMGRCY + BLY - CROPMY + CROPMH, CROPMB, IMGRCY + BLY - CROPMY + CROPMH)
-                                    z5.FillRectangle(Brushes.Yellow, IMGRCX + BLX, IMGRCY + BLY, BLB, BLH)
-                                End If
-                            End If
-                            If CheckBox13.Checked = True And CheckBox14.Checked = True Or CheckBox13.Checked = False And CheckBox14.Checked = False Then
-                                u.DrawRectangle(New Pen(Color.Red, 8), IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH / 2) - CROPMY, CROPMB, CROPMH)
-                                If CheckBox16.Checked = True Then
-                                    z1.FillRectangle(Brushes.Black, 0, 0, IMGRCX + BLX + CROPMX, imgH)
-                                    z2.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, 0, CROPMB, IMGRCY + CInt(BLH / 2) - CROPMY + BLY)
-                                    z3.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX + CROPMB, 0, imgB - IMGRCX - BLX - CROPMB - CROPMX, imgH)
-                                    z4.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH / 2) - CROPMY + CROPMH, CROPMB, imgH - IMGRCY + BLY + CInt(BLH / 2) - CROPMY + CROPMH)
-                                    z5.FillRectangle(Brushes.Yellow, IMGRCX + BLX, IMGRCY + BLY, BLB, BLH)
-                                End If
-                            End If
-                            If CheckBox13.Checked = False And CheckBox14.Checked = True Then
-                                u.DrawRectangle(New Pen(Color.Red, 8), IMGRCX + BLX + CROPMX, IMGRCY + BLY + BLH - CROPMY, CROPMB, CROPMH)
-                                If CheckBox16.Checked = True Then
-                                    z1.FillRectangle(Brushes.Black, 0, 0, IMGRCX + BLX + CROPMX, imgH)
-                                    z2.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, 0, CROPMB, IMGRCY + CInt(BLH) - CROPMY + BLY)
-                                    z3.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX + CROPMB, 0, imgB - IMGRCX - BLX - CROPMB - CROPMX, imgH)
-                                    z4.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH) - CROPMY + CROPMH, CROPMB, imgH - IMGRCY + BLY + BLH - CROPMY + CROPMH)
-                                    z5.FillRectangle(Brushes.Yellow, IMGRCX + BLX, IMGRCY + BLY, BLB, BLH)
-                                End If
-                            End If
-                            u.Dispose()
-                            z1.Dispose()
-                            z2.Dispose()
-                            z3.Dispose()
-                            z4.Dispose()
-                            z5.Dispose()
-                        End If
-                        ' disegna rettangolo controllo visivo
-                        If CheckBox6.Checked = True Then
-                            v.FillRectangle(Brushes.Red, rectangle3)
-                        End If
-                        'riferimento rettangolo controllo visivo
+                    ' disegna angoli di riferimento rettangolo ritaglio 
+                    If CheckBox7.Checked = True Then
                         If CheckBox13.Checked = True And CheckBox14.Checked = False Then
-                            rectangle3 = New Rectangle(BLCX - RB / 2, BLY - (RH + BLH / 2) / 2, RB, RH + BLH / 2)
-                        End If
-                        If CheckBox13.Checked = True And CheckBox14.Checked = True Or CheckBox13.Checked = False And CheckBox14.Checked = False Then
-                            rectangle3 = New Rectangle(BLCX - RB / 2, BLCY - (RH + BLH / 2) / 2, RB, RH + BLH / 2)
+                            If CheckBox6.Checked <> True Then
+                                Dim r As New Rectangle(BLX + 5, BLY + 5, 50, 50)
+                                o.DrawImage(My.Resources.ALTR, r)
+                            End If
                         End If
                         If CheckBox13.Checked = False And CheckBox14.Checked = True Then
-                            rectangle3 = New Rectangle(BLCX - RB / 2, BLY + BLH - (RH + BLH / 2) / 2, RB, RH + BLH / 2)
-                        End If
-                        ' verifica blob
-                        If CheckBox6.Checked = True Then
-                            Application.DoEvents()
-                            ' disegna linea conteggio blob
-                            f.DrawLine(New Pen(Color.Red, 8), 0, CInt(IMGRCH / 2), CInt(IMGRCB), CInt(IMGRCH / 2))
-                            ' verifica se c'è un solo blob  
-                            bl = Double.Parse(blobs.Length)
-                            If bl <> 1 Then
-                                PictureBox19.BackgroundImage = My.Resources.blobred
-                                ToolTip1.SetToolTip(PictureBox19, bl & " Blob")
-                                CONTROL1 = False
-                            Else
-                                PictureBox19.BackgroundImage = My.Resources.blobgreen
-                                ToolTip1.SetToolTip(PictureBox19, bl & " Blob")
-                                CONTROL1 = True
+                            If CheckBox6.Checked <> True Then
+                                Dim r As New Rectangle(BLX + 5, BLY - 55 + BLH, 50, 50)
+                                o.DrawImage(My.Resources.BASSR, r)
                             End If
-                            ' verifica posizione
-                            If rectangle2.IntersectsWith(rectangle3) Then
-                                v.FillRectangle(Brushes.Green, rectangle3)
-                                f.DrawRectangle(New Pen(Color.Green, 10), rectangle2)
-                                PictureBox18.BackgroundImage = My.Resources.alignsgreen
-                                CONTROL = True
-                                If picmod = False Then
-                                    'conteggio blob
-                                    If az = False Then
-                                        BLXV = BLX
-                                        BLYV = BLY
-                                        BLYHV = BLY + BLH
-                                        az = True
-                                    Else
-                                        'verifica spostamento blob
-                                        If My.Settings.foto_in = True Then
-                                            If BLXV <> BLX Or BLXV <> BLY Or BLYHV <> BLY + BLH Then
-                                                PictureBox17.BackgroundImage = My.Resources.countergreen
-                                                CONTROL2 = True
-                                                BLXV = BLX
-                                                BLYV = BLY
-                                                BLYHV = BLY + BLH
-                                                n += 1
-                                                ToolTip1.SetToolTip(PictureBox17, n & " Fotogrammi OK" & vbCrLf & "Doppio Clik Azzera")
-                                            Else
-                                                PictureBox17.BackgroundImage = My.Resources.counterred
-                                                CONTROL2 = False
-                                            End If
+                        End If
+                    End If
+
+                    Dim pic3 As Bitmap = New Bitmap(bit.Width, bit.Height)
+
+                    ' disegna rettangolo blob in picturebox
+                    If CheckBox6.Checked = True Then
+                        If CheckBox7.Checked = True Or CheckBox6.Checked = True Then
+                            Dim k As Graphics = Graphics.FromImage(pic3)
+
+
+                            'k.FillRectangle(Brushes.Yellow, IMGRCX + BLX, IMGRCY + BLY - IMGRCH_3, BLB, BLH)
+
+                            ' disegna rettangolo blob in picturebox
+                            Dim l As New Rectangle(IMGRCX + BLX, IMGRCY + BLY - IMGRCH_3, BLB, BLH)
+                            k.DrawImage(My.Resources.S8NOC, l)
+
+                            ' disegna angoli di riferimento in picturebox
+                            If CheckBox13.Checked = True And CheckBox14.Checked = False Then
+                                Dim r As New Rectangle(IMGRCX + BLX + 5, IMGRCY + BLY - IMGRCH_3 + 5, 50, 50)
+                                k.DrawImage(My.Resources.ALTR, r)
+                            End If
+                            If CheckBox13.Checked = False And CheckBox14.Checked = True Then
+                                Dim r As New Rectangle(IMGRCX + BLX + 5, IMGRCY + BLY + BLH - IMGRCH_3 - 55, 50, 50)
+                                k.DrawImage(My.Resources.BASSR, r)
+                            End If
+                            k.Dispose()
+                        End If
+                    End If
+                    ' disegna rettangolo ritaglio e maschera
+                    If CheckBox7.Checked = True Then
+                        Dim u As Graphics = Graphics.FromImage(pic3)
+                        Dim z1 As Graphics = Graphics.FromImage(pic3)
+                        Dim z2 As Graphics = Graphics.FromImage(pic3)
+                        Dim z3 As Graphics = Graphics.FromImage(pic3)
+                        Dim z4 As Graphics = Graphics.FromImage(pic3)
+                        Dim z5 As Graphics = Graphics.FromImage(pic3)
+                        If CheckBox13.Checked = True And CheckBox14.Checked = False Then
+                            u.DrawRectangle(New Pen(Color.Red, 8), IMGRCX + BLX + CROPMX, IMGRCY + BLY - CROPMY - IMGRCH_3, CROPMB, CROPMH)
+                            If CheckBox16.Checked = True Then
+                                z1.FillRectangle(Brushes.Black, 0, 0, IMGRCX + BLX + CROPMX, imgH)
+                                z2.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, -IMGRCH_3, CROPMB, IMGRCY - CROPMY + BLY)
+                                z3.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX + CROPMB, 0, imgB - CROPMB - CROPMX, imgH)
+                                z4.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, IMGRCY + BLY - CROPMY + CROPMH - IMGRCH_3, CROPMB, IMGRCY + BLY - CROPMY + CROPMH)
+
+                                'z5.FillRectangle(Brushes.Yellow, IMGRCX + BLX, IMGRCY + BLY - IMGRCH_3, BLB, BLH)
+                                Dim l As New Rectangle(IMGRCX + BLX, IMGRCY + BLY - IMGRCH_3, BLB, BLH)
+                                z5.DrawImage(My.Resources.S8NOC, l)
+                            End If
+                        End If
+                        If CheckBox13.Checked = True And CheckBox14.Checked = True Or CheckBox13.Checked = False And CheckBox14.Checked = False Then
+                            u.DrawRectangle(New Pen(Color.Red, 8), IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH / 2) - CROPMY - IMGRCH_3, CROPMB, CROPMH)
+                            If CheckBox16.Checked = True Then
+                                z1.FillRectangle(Brushes.Black, 0, 0, IMGRCX + BLX + CROPMX, imgH)
+                                z2.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, -IMGRCH_3, CROPMB, IMGRCY + CInt(BLH / 2) - CROPMY + BLY)
+                                z3.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX + CROPMB, 0, imgB - IMGRCX - BLX - CROPMB - CROPMX, imgH)
+                                z4.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH / 2) - CROPMY + CROPMH - IMGRCH_3, CROPMB, imgH - IMGRCY + BLY + CInt(BLH / 2) - CROPMY + CROPMH)
+
+                                'z5.FillRectangle(Brushes.Yellow, IMGRCX + BLX, IMGRCY + BLY - IMGRCH_3, BLB, BLH)
+                                Dim l As New Rectangle(IMGRCX + BLX, IMGRCY + BLY - IMGRCH_3, BLB, BLH)
+                                z5.DrawImage(My.Resources.S8NOC, l)
+                            End If
+                        End If
+                        If CheckBox13.Checked = False And CheckBox14.Checked = True Then
+                            u.DrawRectangle(New Pen(Color.Red, 8), IMGRCX + BLX + CROPMX, IMGRCY + BLY + BLH - CROPMY - IMGRCH_3, CROPMB, CROPMH)
+                            If CheckBox16.Checked = True Then
+                                z1.FillRectangle(Brushes.Black, 0, 0, IMGRCX + BLX + CROPMX, imgH)
+                                z2.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, -IMGRCH_3, CROPMB, IMGRCY + CInt(BLH) - CROPMY + BLY)
+                                z3.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX + CROPMB, 0, imgB - IMGRCX - BLX - CROPMB - CROPMX, imgH)
+                                z4.FillRectangle(Brushes.Black, IMGRCX + BLX + CROPMX, IMGRCY + BLY + CInt(BLH) - CROPMY + CROPMH - IMGRCH_3, CROPMB, imgH - IMGRCY + BLY + BLH - CROPMY + CROPMH)
+
+                                'z5.FillRectangle(Brushes.Yellow, IMGRCX + BLX, IMGRCY + BLY - IMGRCH_3, BLB, BLH)
+                                Dim l As New Rectangle(IMGRCX + BLX, IMGRCY + BLY - IMGRCH_3, BLB, BLH)
+                                z5.DrawImage(My.Resources.S8NOC, l)
+                            End If
+                        End If
+                        u.Dispose()
+                        z1.Dispose()
+                        z2.Dispose()
+                        z3.Dispose()
+                        z4.Dispose()
+                        z5.Dispose()
+                    End If
+                    ' disegna rettangolo controllo visivo
+                    If CheckBox6.Checked = True Then
+                        v.FillRectangle(Brushes.Red, rectangle3)
+                    End If
+                    'riferimento rettangolo controllo visivo
+                    If CheckBox13.Checked = True And CheckBox14.Checked = False Then
+                        rectangle3 = New Rectangle(BLCX - RB / 2, BLY - (RH + BLH) / 2, RB, RH + BLH)
+                    End If
+                    If CheckBox13.Checked = True And CheckBox14.Checked = True Or CheckBox13.Checked = False And CheckBox14.Checked = False Then
+                        rectangle3 = New Rectangle(BLCX - RB / 2, BLCY - (RH + BLH) / 2, RB, RH + BLH)
+                    End If
+                    If CheckBox13.Checked = False And CheckBox14.Checked = True Then
+                        rectangle3 = New Rectangle(BLCX - RB / 2, BLY + BLH - (RH + BLH) / 2, RB, RH + BLH)
+                    End If
+                    ' verifica blob
+                    If CheckBox6.Checked = True Then
+                        Application.DoEvents()
+                        ' disegna linea conteggio blob
+                        'f.DrawLine(New Pen(Color.Red, 8), 0, CInt(IMGRCH), CInt(IMGRCB), CInt(IMGRCH))
+
+
+
+                        If CheckBox13.Checked = True And CheckBox14.Checked = False Then
+                            f.DrawLine(New Pen(Color.Red, 8), 0, CInt(IMGRCH / 2), CInt(IMGRCB), CInt(IMGRCH / 2))
+                        End If
+                        If CheckBox13.Checked = True And CheckBox14.Checked = True Or CheckBox13.Checked = False And CheckBox14.Checked = False Then
+                            f.DrawLine(New Pen(Color.Red, 8), 0, CInt(IMGRCH), CInt(IMGRCB), CInt(IMGRCH))
+                        End If
+                        If CheckBox13.Checked = False And CheckBox14.Checked = True Then
+                            f.DrawLine(New Pen(Color.Red, 8), 0, CInt(IMGRCH + IMGRCH / 2), CInt(IMGRCB), CInt(IMGRCH + IMGRCH / 2))
+                        End If
+
+                        ' verifica se c'è un solo blob  
+                        bl = Double.Parse(blobs.Length)
+                        If bl <> 1 Then
+                            PictureBox19.BackgroundImage = My.Resources.blobred
+                            ToolTip1.SetToolTip(PictureBox19, bl & " Blob")
+                            CONTROL1 = False
+                        Else
+                            PictureBox19.BackgroundImage = My.Resources.blobgreen
+                            ToolTip1.SetToolTip(PictureBox19, bl & " Blob")
+                            CONTROL1 = True
+                        End If
+                        ' verifica posizione
+                        If rectangle2.IntersectsWith(rectangle3) Then
+                            v.FillRectangle(Brushes.Green, rectangle3)
+                            f.DrawRectangle(New Pen(Color.Green, 10), rectangle2)
+                            PictureBox18.BackgroundImage = My.Resources.alignsgreen
+                            CONTROL = True
+                            If picmod = False Then
+                                'conteggio blob
+                                If az = False Then
+                                    BLXV = BLX
+                                    BLYV = BLY
+                                    BLYHV = BLY + BLH
+                                    az = True
+                                Else
+                                    'verifica spostamento blob
+                                    If My.Settings.foto_in = True Then
+                                        If BLXV <> BLX Or BLXV <> BLY Or BLYHV <> BLY + BLH Then
+                                            PictureBox17.BackgroundImage = My.Resources.countergreen
+                                            CONTROL2 = True
+                                            BLXV = BLX
+                                            BLYV = BLY
+                                            BLYHV = BLY + BLH
+                                            n += 1
+                                            ToolTip1.SetToolTip(PictureBox17, n & " Fotogrammi OK" & vbCrLf & "Doppio Clik Azzera")
+                                        Else
+                                            PictureBox17.BackgroundImage = My.Resources.counterred
+                                            CONTROL2 = False
                                         End If
                                     End If
                                 End If
-                            Else
-                                CONTROL = False
-                                v.FillRectangle(Brushes.Red, rectangle3)
-                                PictureBox18.BackgroundImage = My.Resources.alignsred
-                                H.Dispose()
-                                g.Dispose()
-                                o.Dispose()
-                                f.Dispose()
                             End If
                         Else
-                            CONTROL = True
-                            CONTROL1 = True
-                            CONTROL2 = True
-                            PictureBox19.BackgroundImage = My.Resources.blob
-                            PictureBox17.BackgroundImage = My.Resources.counter
-                            PictureBox18.BackgroundImage = My.Resources.aligns
+                            CONTROL = False
+                            v.FillRectangle(Brushes.Red, rectangle3)
+                            PictureBox18.BackgroundImage = My.Resources.alignsred
+                            H.Dispose()
+                            g.Dispose()
+                            o.Dispose()
+                            f.Dispose()
                         End If
-
-                        If PictureBox29.Image IsNot Nothing Then PictureBox29.Image.Dispose()
-                        If PictureBox29.BackgroundImage IsNot Nothing Then PictureBox29.Image.Dispose()
-                        If PictureBox21.Image IsNot Nothing Then PictureBox21.Image.Dispose()
-                        If PictureBox21.BackgroundImage IsNot Nothing Then PictureBox21.Image.Dispose()
-                        If PictureBox22.Image IsNot Nothing Then PictureBox22.Image.Dispose()
-                        PictureBox29.BackgroundImage = cropBitmap
-                        PictureBox21.BackgroundImage = grayImage
-                        PictureBox22.Image = pic3
-                        PictureBox29.Image = DRW
-                        PictureBox21.Image = pic2
+                    Else
+                        CONTROL = True
+                        CONTROL1 = True
+                        CONTROL2 = True
+                        PictureBox19.BackgroundImage = My.Resources.blob
+                        PictureBox17.BackgroundImage = My.Resources.counter
+                        PictureBox18.BackgroundImage = My.Resources.aligns
                     End If
+
+                    If PictureBox29.Image IsNot Nothing Then PictureBox29.Image.Dispose()
+                    If PictureBox29.BackgroundImage IsNot Nothing Then PictureBox29.Image.Dispose()
+                    If PictureBox21.Image IsNot Nothing Then PictureBox21.Image.Dispose()
+                    If PictureBox21.BackgroundImage IsNot Nothing Then PictureBox21.Image.Dispose()
+                    If PictureBox22.Image IsNot Nothing Then PictureBox22.Image.Dispose()
+
+                    PictureBox29.BackgroundImage = cropBitmap
+                    PictureBox29.Image = DRW
+                    PictureBox22.Image = pic3
+
+                    Dim grayImage_2 As New Bitmap(BLBR, BLH)
+                    Dim GI As Graphics = Graphics.FromImage(grayImage_2)
+                    GI.InterpolationMode = InterpolationMode.HighQualityBicubic
+                    GI.PixelOffsetMode = PixelOffsetMode.HighQuality
+                    GI.CompositingQuality = CompositingQuality.HighQuality
+                    GI.DrawImage(grayImage, New Rectangle(0, 0, BLBR, BLH), (BLX), BLY, BLBR, BLH, GraphicsUnit.Pixel)
+
+                    PictureBox21.BackgroundImage = grayImage_2
+
+                    Dim pic2_2 As New Bitmap(BLBR, BLH)
+                    Dim p2 As Graphics = Graphics.FromImage(pic2_2)
+                    p2.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
+                    p2.PixelOffsetMode = Drawing2D.PixelOffsetMode.HighQuality
+                    p2.CompositingQuality = Drawing2D.CompositingQuality.HighQuality
+                    p2.DrawImage(pic2, New Rectangle(0, 0, BLBR, BLH), BLX, BLY, BLBR, BLH, GraphicsUnit.Pixel)
+
+                    PictureBox21.Image = pic2_2
                 End If
+            End If
         End If
         ELAB = False
     End Sub
@@ -4931,7 +5050,7 @@ Public Class Form1
             If My.Settings.foto_in = True And My.Settings.foto_in2 = False Then
                 If CONTROL = True And CONTROL1 = True And CONTROL2 = True Then
                     If CheckBox7.Checked = True Then
-                        Dim croBitmap As New Bitmap(IMAGEN, CROPMB, CROPMH)
+                        Dim croBitmap As New Bitmap(CROPMB, CROPMH)
                         Dim p As Graphics = Graphics.FromImage(croBitmap)
                         p.InterpolationMode = InterpolationMode.HighQualityBicubic
                         p.PixelOffsetMode = PixelOffsetMode.HighQuality
@@ -4944,7 +5063,7 @@ Public Class Form1
                         If CheckBox13.Checked = True And CheckBox14.Checked = True Or CheckBox13.Checked = False And CheckBox14.Checked = False Then
                             p.DrawImage(IMAGEN, New Rectangle(0, 0, CROPMB, CROPMH),
                                                                         IMGRCX + BLX + CROPMX,
-                                                                        IMGRCY + BLY + CInt(BLH / 2) - CROPMY,
+                                                                        IMGRCY + BLY + CInt(BLH / 2) - CROPMY - CInt(IMGRCY / 2),
                                                                         CROPMB, CROPMH, GraphicsUnit.Pixel)
                         End If
                         If CheckBox13.Checked = False And CheckBox14.Checked = True Then
@@ -5036,20 +5155,18 @@ Public Class Form1
         IMAGEN = original.Clone
         PictureBox22.BackgroundImage = IMAGEN
         ZOOMON = False
-        'If AVA = True And rectCropArea <> Nothing Then
-        ELABORA()
-        'End If
+
     End Sub
     'ZOOMVER 
     Private Sub ZOOMVER()
         If IMAGEN IsNot Nothing And ZOOMON = True Then
-            If original IsNot Nothing Then
-                IMAGENZOOM = original.Clone
+            If original IsNot Nothing And NumericUpDown9.Value <> 1 Then
+                'IMAGENZOOM = original.Clone
                 'IMAGEN.Dispose()
-                Dim BAS As Integer = IMAGENZOOM.Width / NumericUpDown9.Value
-                Dim ALT As Integer = IMAGENZOOM.Height / NumericUpDown9.Value
-                Dim BAS2 As Integer = IMAGENZOOM.Width * 0.5
-                Dim ALT2 As Integer = IMAGENZOOM.Height * 0.5
+                Dim BAS As Integer = original.Width / NumericUpDown9.Value
+                Dim ALT As Integer = original.Height / NumericUpDown9.Value
+                Dim BAS2 As Integer = original.Width * 0.5
+                Dim ALT2 As Integer = original.Height * 0.5
                 Dim BAS3 As Integer = BAS * 0.5
                 Dim ALT3 As Integer = ALT * 0.5
                 Dim ZOOMBitmap As New Bitmap(BAS, ALT)
@@ -5057,20 +5174,17 @@ Public Class Form1
                 Z.InterpolationMode = InterpolationMode.HighQualityBicubic
                 Z.PixelOffsetMode = PixelOffsetMode.HighQuality
                 Z.CompositingQuality = CompositingQuality.HighQuality
-                Z.DrawImage(IMAGENZOOM, New Rectangle(0, 0, BAS, ALT),
+                Z.DrawImage(original, New Rectangle(0, 0, BAS, ALT),
                                          -(BAS3 - BAS2) + ZOOMX, -(ALT3 - ALT2) + ZOOMY,
                                            BAS, ALT, GraphicsUnit.Pixel)
                 Z.Dispose()
                 IMAGEN = New Bitmap(ZOOMBitmap, ZOOMBitmap.Width, ZOOMBitmap.Height)
                 ZOOMBitmap.Dispose()
-                IMAGENZOOM.Dispose()
-
-
+                'IMAGENZOOM.Dispose()
 
                 PictureBox22.BackgroundImage = IMAGEN
-                'If AVA = True And rectCropArea <> Nothing Then
-                'ELABORA()
-                'End If
+            Else
+                PictureBox22.BackgroundImage = IMAGEN
             End If
         End If
     End Sub
@@ -5086,37 +5200,8 @@ Public Class Form1
     ' SELEZIONE VALORE ZOOM 
     Private Sub NumericUpDown9_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown9.ValueChanged
         If IMAGEN IsNot Nothing And ZOOMON = True Then
-            If original IsNot Nothing Then
-
-
-                IMAGENZOOM = original.Clone
-                'IMAGEN.Dispose()
-                Dim BAS As Integer = IMAGENZOOM.Width / NumericUpDown9.Value
-                Dim ALT As Integer = IMAGENZOOM.Height / NumericUpDown9.Value
-                Dim BAS2 As Integer = IMAGENZOOM.Width * 0.5
-                Dim ALT2 As Integer = IMAGENZOOM.Height * 0.5
-                Dim BAS3 As Integer = BAS * 0.5
-                Dim ALT3 As Integer = ALT * 0.5
-                Dim ZOOMBitmap As New Bitmap(BAS, ALT)
-                Dim Z As Graphics = Graphics.FromImage(ZOOMBitmap)
-                Z.InterpolationMode = InterpolationMode.HighQualityBicubic
-                Z.PixelOffsetMode = PixelOffsetMode.HighQuality
-                Z.CompositingQuality = CompositingQuality.HighQuality
-                Z.DrawImage(IMAGENZOOM, New Rectangle(0, 0, BAS, ALT),
-                                         -(BAS3 - BAS2) + ZOOMX, -(ALT3 - ALT2) + ZOOMY,
-                                           BAS, ALT, GraphicsUnit.Pixel)
-                Z.Dispose()
-                IMAGEN = New Bitmap(ZOOMBitmap, ZOOMBitmap.Width, ZOOMBitmap.Height)
-                ZOOMBitmap.Dispose()
-                IMAGENZOOM.Dispose()
-
-                If PictureBox22.BackgroundImage IsNot Nothing Then PictureBox22.BackgroundImage.Dispose()
-                'PictureBox22.BackgroundImage = IMAGEN
-                'If AVA = True And rectCropArea <> Nothing Then
-                ELABORA()
-                'End If
-            End If
-
+            ZOOMVER()
+            ELABORA()
         End If
     End Sub
     ' BOTTONI MUOVI IMMAGINE ZOOM
@@ -5159,6 +5244,7 @@ Public Class Form1
             End If
         End If
     End Sub
+
     Private Sub TextBox10_LostFocus(sender As Object, e As EventArgs) Handles TextBox10.LostFocus
         ZOOMX = TextBox10.Text
         ZOOMVER()
@@ -5321,47 +5407,48 @@ Public Class Form1
 #Region "COMANDI VARI AVANZATO"
     'SALVA IMPOSTAZIONI AVANZATO
     Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
-        'If MsgBox("Salvare Impostazioni?", MsgBoxStyle.YesNo, ) = MsgBoxResult.Yes Then
-        '    My.Settings.CMX = CROPMX
-        '    My.Settings.CMY = CROPMY
-        '    My.Settings.CMB = CROPMB
-        '    My.Settings.CMH = CROPMH
-        '    My.Settings.RCB = RB
-        '    My.Settings.RCH = RH
-        '    My.Settings.RIFA = CheckBox13.Checked
-        '    My.Settings.RIFB = CheckBox14.Checked
-        '    My.Settings.ER = CheckBox12.Checked
-        '    My.Settings.ER3 = CheckBox11.Checked
-        '    My.Settings.INV = CheckBox10.Checked
-        '    My.Settings.ESPO = TrackBar3.Value
-        '    My.Settings.CONT = TrackBar1.Value
-        '    My.Settings.RSX = rectCropArea.X
-        '    My.Settings.RSY = rectCropArea.Y
-        '    My.Settings.RSB = rectCropArea.Width
-        '    My.Settings.RSH = rectCropArea.Height
-        'End If
+        If MsgBox("Salvare Impostazioni?", MsgBoxStyle.YesNo, ) = MsgBoxResult.Yes Then
+            My.Settings.CMX = CROPMX
+            My.Settings.CMY = CROPMY
+            My.Settings.CMB = CROPMB
+            My.Settings.CMH = CROPMH
+            'My.Settings.RCB = RB
+            My.Settings.RCH = RH
+            My.Settings.RIFA = CheckBox13.Checked
+            My.Settings.RIFB = CheckBox14.Checked
+            My.Settings.ER = CheckBox12.Checked
+            My.Settings.ER3 = CheckBox11.Checked
+            My.Settings.INV = CheckBox10.Checked
+            My.Settings.ESPO = TrackBar3.Value
+            My.Settings.CONT = TrackBar1.Value
+            My.Settings.RSX = rectCropArea.X
+            My.Settings.RSY = rectCropArea.Y
+            My.Settings.RSB = rectCropArea.Width
+            My.Settings.RSH = rectCropArea.Height
+        End If
     End Sub
     'CARICA IMPOSTAZIONI AVANZATO
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click, Button57.Click
-        'If MsgBox("Caricare Impostazioni?", MsgBoxStyle.YesNo, ) = MsgBoxResult.Yes Then
-        '    CROPMX = My.Settings.CMX
-        '    CROPMY = My.Settings.CMY
-        '    CROPMB = My.Settings.CMB
-        '    CROPMH = My.Settings.CMH
-        '    RB = My.Settings.RCB
-        '    RH = My.Settings.RCH
-        '    CheckBox13.Checked = My.Settings.RIFA
-        '    CheckBox14.Checked = My.Settings.RIFB
-        '    CheckBox12.Checked = My.Settings.ER
-        '    CheckBox11.Checked = My.Settings.ER3
-        '    CheckBox10.Checked = My.Settings.INV
-        '    TrackBar3.Value = My.Settings.ESPO
-        '    TrackBar1.Value = My.Settings.CONT
-        '    rectCropArea.X = My.Settings.RSX
-        '    rectCropArea.Y = My.Settings.RSY
-        '    rectCropArea.Width = My.Settings.RSB
-        '    rectCropArea.Height = My.Settings.RSH
-        'End If
+        If MsgBox("Caricare Impostazioni?", MsgBoxStyle.YesNo, ) = MsgBoxResult.Yes Then
+            CROPMX = My.Settings.CMX
+            CROPMY = My.Settings.CMY
+            CROPMB = My.Settings.CMB
+            CROPMH = My.Settings.CMH
+            'RB = My.Settings.RCB
+            RH = My.Settings.RCH
+            CheckBox13.Checked = My.Settings.RIFA
+            CheckBox14.Checked = My.Settings.RIFB
+            CheckBox12.Checked = My.Settings.ER
+            CheckBox11.Checked = My.Settings.ER3
+            CheckBox10.Checked = My.Settings.INV
+            TrackBar3.Value = My.Settings.ESPO
+            TrackBar1.Value = My.Settings.CONT
+            rectCropArea.X = My.Settings.RSX
+            rectCropArea.Y = My.Settings.RSY
+            rectCropArea.Width = My.Settings.RSB
+            rectCropArea.Height = My.Settings.RSH
+            ELABORA()
+        End If
     End Sub
 
     'SPECCHIA IN VERTICALE
@@ -5550,9 +5637,9 @@ Public Class Form1
                 End If
             Else
                 Exit Sub
-                End If
-            Else
-                If WIEW1 = "" Then
+            End If
+        Else
+            If WIEW1 = "" Then
                 Dim folderDlg As New OpenFileDialog
                 If (folderDlg.ShowDialog() = DialogResult.OK) Then
                     WIEW1 = folderDlg.FileName

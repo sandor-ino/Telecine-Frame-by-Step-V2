@@ -372,6 +372,11 @@ TELECINE
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:TELECINE.My.Resources.Resources.N8NOC">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:TELECINE.My.Resources.Resources.N8PIC">
 <summary>
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
@@ -518,6 +523,11 @@ TELECINE
 </summary>
 </member>
 <member name="P:TELECINE.My.Resources.Resources.S8GIF">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:TELECINE.My.Resources.Resources.S8NOC">
 <summary>
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
 </summary>

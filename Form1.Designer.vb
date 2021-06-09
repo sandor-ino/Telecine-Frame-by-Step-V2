@@ -305,32 +305,11 @@ Partial Class Form1
         Me.PictureBox18 = New System.Windows.Forms.PictureBox()
         Me.PictureBox17 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel30 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel31 = New System.Windows.Forms.Panel()
-        Me.PictureBox21 = New System.Windows.Forms.PictureBox()
         Me.Panel30 = New System.Windows.Forms.Panel()
         Me.PictureBox29 = New System.Windows.Forms.PictureBox()
+        Me.Panel31 = New System.Windows.Forms.Panel()
+        Me.PictureBox21 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel96 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox19 = New System.Windows.Forms.CheckBox()
-        Me.Panel63 = New System.Windows.Forms.Panel()
-        Me.Button86 = New System.Windows.Forms.Button()
-        Me.Button75 = New System.Windows.Forms.Button()
-        Me.Panel64 = New System.Windows.Forms.Panel()
-        Me.Button98 = New System.Windows.Forms.Button()
-        Me.Button97 = New System.Windows.Forms.Button()
-        Me.Panel65 = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel97 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Button76 = New System.Windows.Forms.Button()
-        Me.Panel32 = New System.Windows.Forms.Panel()
-        Me.Panel49 = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel14 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Button87 = New System.Windows.Forms.Button()
-        Me.Button77 = New System.Windows.Forms.Button()
-        Me.NumericUpDown9 = New System.Windows.Forms.NumericUpDown()
-        Me.Button21 = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel50 = New System.Windows.Forms.Panel()
         Me.Panel57 = New System.Windows.Forms.Panel()
@@ -351,6 +330,27 @@ Partial Class Form1
         Me.Button90 = New System.Windows.Forms.Button()
         Me.Button89 = New System.Windows.Forms.Button()
         Me.PictureBox22 = New AForge.Controls.PictureBox()
+        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox19 = New System.Windows.Forms.CheckBox()
+        Me.Panel63 = New System.Windows.Forms.Panel()
+        Me.Button86 = New System.Windows.Forms.Button()
+        Me.Button75 = New System.Windows.Forms.Button()
+        Me.Panel32 = New System.Windows.Forms.Panel()
+        Me.Panel49 = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel14 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button87 = New System.Windows.Forms.Button()
+        Me.Button77 = New System.Windows.Forms.Button()
+        Me.NumericUpDown9 = New System.Windows.Forms.NumericUpDown()
+        Me.Button21 = New System.Windows.Forms.Button()
+        Me.Panel65 = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel97 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Button76 = New System.Windows.Forms.Button()
+        Me.Panel64 = New System.Windows.Forms.Panel()
+        Me.Button98 = New System.Windows.Forms.Button()
+        Me.Button97 = New System.Windows.Forms.Button()
         Me.Panello_arduino = New System.Windows.Forms.Panel()
         Me.Panello_connessione = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
@@ -556,20 +556,11 @@ Partial Class Form1
         CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel30.SuspendLayout()
-        Me.Panel31.SuspendLayout()
-        CType(Me.PictureBox21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel30.SuspendLayout()
         CType(Me.PictureBox29, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel31.SuspendLayout()
+        CType(Me.PictureBox21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel96.SuspendLayout()
-        Me.TableLayoutPanel7.SuspendLayout()
-        Me.Panel63.SuspendLayout()
-        Me.Panel64.SuspendLayout()
-        Me.Panel65.SuspendLayout()
-        Me.TableLayoutPanel97.SuspendLayout()
-        Me.Panel32.SuspendLayout()
-        Me.Panel49.SuspendLayout()
-        Me.TableLayoutPanel14.SuspendLayout()
-        CType(Me.NumericUpDown9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel50.SuspendLayout()
         Me.Panel57.SuspendLayout()
@@ -582,6 +573,15 @@ Partial Class Form1
         Me.Panel56.SuspendLayout()
         Me.TableLayoutPanel91.SuspendLayout()
         CType(Me.PictureBox22, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel7.SuspendLayout()
+        Me.Panel63.SuspendLayout()
+        Me.Panel32.SuspendLayout()
+        Me.Panel49.SuspendLayout()
+        Me.TableLayoutPanel14.SuspendLayout()
+        CType(Me.NumericUpDown9, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel65.SuspendLayout()
+        Me.TableLayoutPanel97.SuspendLayout()
+        Me.Panel64.SuspendLayout()
         Me.Panello_arduino.SuspendLayout()
         Me.Panello_connessione.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -4400,7 +4400,6 @@ Partial Class Form1
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(46, 24)
         Me.Label7.TabIndex = 5
-        Me.Label7.Text = "Label7"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label6
@@ -4413,7 +4412,6 @@ Partial Class Form1
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(46, 23)
         Me.Label6.TabIndex = 4
-        Me.Label6.Text = "Label6"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TableLayoutPanel38
@@ -4913,54 +4911,28 @@ Partial Class Form1
         '
         'TableLayoutPanel30
         '
-        Me.TableLayoutPanel30.ColumnCount = 1
+        Me.TableLayoutPanel30.ColumnCount = 2
         Me.TableLayoutPanel30.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel30.Controls.Add(Me.Panel31, 0, 1)
-        Me.TableLayoutPanel30.Controls.Add(Me.Panel30, 0, 0)
+        Me.TableLayoutPanel30.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel30.Controls.Add(Me.Panel30, 1, 0)
+        Me.TableLayoutPanel30.Controls.Add(Me.Panel31, 0, 0)
         Me.TableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel30.Location = New System.Drawing.Point(122, 2)
         Me.TableLayoutPanel30.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel30.Name = "TableLayoutPanel30"
-        Me.TableLayoutPanel30.RowCount = 2
-        Me.TableLayoutPanel30.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel30.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel30.RowCount = 1
+        Me.TableLayoutPanel30.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel30.Size = New System.Drawing.Size(116, 157)
         Me.TableLayoutPanel30.TabIndex = 1
-        '
-        'Panel31
-        '
-        Me.Panel31.Controls.Add(Me.PictureBox21)
-        Me.Panel31.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel31.Location = New System.Drawing.Point(2, 80)
-        Me.Panel31.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel31.Name = "Panel31"
-        Me.Panel31.Size = New System.Drawing.Size(112, 75)
-        Me.Panel31.TabIndex = 44
-        '
-        'PictureBox21
-        '
-        Me.PictureBox21.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox21.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox21.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox21.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox21.Name = "PictureBox21"
-        Me.PictureBox21.Size = New System.Drawing.Size(112, 75)
-        Me.PictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox21.TabIndex = 19
-        Me.PictureBox21.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox21, "DataBits = 8" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "StopBits = 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "BaudRate = 9600" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Parity = None" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HandShake = None" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
         '
         'Panel30
         '
         Me.Panel30.Controls.Add(Me.PictureBox29)
         Me.Panel30.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel30.Location = New System.Drawing.Point(2, 2)
+        Me.Panel30.Location = New System.Drawing.Point(60, 2)
         Me.Panel30.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel30.Name = "Panel30"
-        Me.Panel30.Size = New System.Drawing.Size(112, 74)
+        Me.Panel30.Size = New System.Drawing.Size(54, 153)
         Me.Panel30.TabIndex = 43
         '
         'PictureBox29
@@ -4973,17 +4945,42 @@ Partial Class Form1
         Me.PictureBox29.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox29.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox29.Name = "PictureBox29"
-        Me.PictureBox29.Size = New System.Drawing.Size(112, 74)
+        Me.PictureBox29.Size = New System.Drawing.Size(54, 150)
         Me.PictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox29.TabIndex = 19
         Me.PictureBox29.TabStop = False
+        '
+        'Panel31
+        '
+        Me.Panel31.Controls.Add(Me.PictureBox21)
+        Me.Panel31.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel31.Location = New System.Drawing.Point(2, 2)
+        Me.Panel31.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel31.Name = "Panel31"
+        Me.Panel31.Size = New System.Drawing.Size(54, 153)
+        Me.Panel31.TabIndex = 44
+        '
+        'PictureBox21
+        '
+        Me.PictureBox21.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox21.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox21.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox21.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox21.Name = "PictureBox21"
+        Me.PictureBox21.Size = New System.Drawing.Size(54, 153)
+        Me.PictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox21.TabIndex = 19
+        Me.PictureBox21.TabStop = False
         '
         'TableLayoutPanel96
         '
         Me.TableLayoutPanel96.ColumnCount = 1
         Me.TableLayoutPanel96.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel96.Controls.Add(Me.TableLayoutPanel7, 0, 0)
         Me.TableLayoutPanel96.Controls.Add(Me.Panel3, 0, 1)
+        Me.TableLayoutPanel96.Controls.Add(Me.TableLayoutPanel7, 0, 0)
         Me.TableLayoutPanel96.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel96.Location = New System.Drawing.Point(2, 2)
         Me.TableLayoutPanel96.Margin = New System.Windows.Forms.Padding(2)
@@ -4993,325 +4990,6 @@ Partial Class Form1
         Me.TableLayoutPanel96.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.0!))
         Me.TableLayoutPanel96.Size = New System.Drawing.Size(243, 193)
         Me.TableLayoutPanel96.TabIndex = 2
-        '
-        'TableLayoutPanel7
-        '
-        Me.TableLayoutPanel7.ColumnCount = 6
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel7.Controls.Add(Me.CheckBox4, 3, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.CheckBox19, 4, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.Panel63, 2, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.Panel64, 1, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.Panel65, 0, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.Panel32, 5, 0)
-        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
-        Me.TableLayoutPanel7.RowCount = 1
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(243, 28)
-        Me.TableLayoutPanel7.TabIndex = 1
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.Appearance = System.Windows.Forms.Appearance.Button
-        Me.CheckBox4.BackgroundImage = Global.TELECINE.My.Resources.Resources.flip_orizontal
-        Me.CheckBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.CheckBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CheckBox4.FlatAppearance.BorderSize = 0
-        Me.CheckBox4.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
-        Me.CheckBox4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.CheckBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox4.Location = New System.Drawing.Point(148, 2)
-        Me.CheckBox4.Margin = New System.Windows.Forms.Padding(2)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(28, 24)
-        Me.CheckBox4.TabIndex = 17
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        Me.CheckBox4.Visible = False
-        '
-        'CheckBox19
-        '
-        Me.CheckBox19.Appearance = System.Windows.Forms.Appearance.Button
-        Me.CheckBox19.BackgroundImage = Global.TELECINE.My.Resources.Resources.flip_vertical
-        Me.CheckBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.CheckBox19.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CheckBox19.FlatAppearance.BorderSize = 0
-        Me.CheckBox19.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
-        Me.CheckBox19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.CheckBox19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox19.Location = New System.Drawing.Point(180, 2)
-        Me.CheckBox19.Margin = New System.Windows.Forms.Padding(2)
-        Me.CheckBox19.Name = "CheckBox19"
-        Me.CheckBox19.Size = New System.Drawing.Size(28, 24)
-        Me.CheckBox19.TabIndex = 2
-        Me.CheckBox19.UseVisualStyleBackColor = True
-        Me.CheckBox19.Visible = False
-        '
-        'Panel63
-        '
-        Me.Panel63.Controls.Add(Me.Button86)
-        Me.Panel63.Controls.Add(Me.Button75)
-        Me.Panel63.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel63.Location = New System.Drawing.Point(116, 2)
-        Me.Panel63.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel63.Name = "Panel63"
-        Me.Panel63.Size = New System.Drawing.Size(28, 24)
-        Me.Panel63.TabIndex = 13
-        '
-        'Button86
-        '
-        Me.Button86.BackgroundImage = Global.TELECINE.My.Resources.Resources.cam_update
-        Me.Button86.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button86.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button86.FlatAppearance.BorderSize = 0
-        Me.Button86.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.Button86.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button86.Location = New System.Drawing.Point(0, 0)
-        Me.Button86.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button86.Name = "Button86"
-        Me.Button86.Size = New System.Drawing.Size(28, 24)
-        Me.Button86.TabIndex = 8
-        Me.Button86.UseVisualStyleBackColor = True
-        Me.Button86.Visible = False
-        '
-        'Button75
-        '
-        Me.Button75.BackgroundImage = Global.TELECINE.My.Resources.Resources.rotate_right
-        Me.Button75.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button75.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button75.FlatAppearance.BorderSize = 0
-        Me.Button75.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.Button75.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button75.Location = New System.Drawing.Point(0, 0)
-        Me.Button75.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button75.Name = "Button75"
-        Me.Button75.Size = New System.Drawing.Size(28, 24)
-        Me.Button75.TabIndex = 7
-        Me.Button75.UseVisualStyleBackColor = True
-        Me.Button75.Visible = False
-        '
-        'Panel64
-        '
-        Me.Panel64.Controls.Add(Me.Button98)
-        Me.Panel64.Controls.Add(Me.Button97)
-        Me.Panel64.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel64.Location = New System.Drawing.Point(84, 2)
-        Me.Panel64.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel64.Name = "Panel64"
-        Me.Panel64.Size = New System.Drawing.Size(28, 24)
-        Me.Panel64.TabIndex = 14
-        '
-        'Button98
-        '
-        Me.Button98.BackgroundImage = Global.TELECINE.My.Resources.Resources.cam_on
-        Me.Button98.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button98.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button98.FlatAppearance.BorderSize = 0
-        Me.Button98.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.Button98.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button98.Location = New System.Drawing.Point(0, 0)
-        Me.Button98.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button98.Name = "Button98"
-        Me.Button98.Size = New System.Drawing.Size(28, 24)
-        Me.Button98.TabIndex = 8
-        Me.Button98.UseVisualStyleBackColor = True
-        Me.Button98.Visible = False
-        '
-        'Button97
-        '
-        Me.Button97.BackgroundImage = Global.TELECINE.My.Resources.Resources.rotate_left
-        Me.Button97.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button97.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button97.FlatAppearance.BorderSize = 0
-        Me.Button97.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.Button97.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button97.Location = New System.Drawing.Point(0, 0)
-        Me.Button97.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button97.Name = "Button97"
-        Me.Button97.Size = New System.Drawing.Size(28, 24)
-        Me.Button97.TabIndex = 7
-        Me.Button97.UseVisualStyleBackColor = True
-        Me.Button97.Visible = False
-        '
-        'Panel65
-        '
-        Me.Panel65.Controls.Add(Me.TableLayoutPanel97)
-        Me.Panel65.Controls.Add(Me.Button76)
-        Me.Panel65.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel65.Location = New System.Drawing.Point(2, 2)
-        Me.Panel65.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel65.Name = "Panel65"
-        Me.Panel65.Size = New System.Drawing.Size(78, 24)
-        Me.Panel65.TabIndex = 15
-        '
-        'TableLayoutPanel97
-        '
-        Me.TableLayoutPanel97.ColumnCount = 1
-        Me.TableLayoutPanel97.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel97.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11.0!))
-        Me.TableLayoutPanel97.Controls.Add(Me.ComboBox8, 0, 1)
-        Me.TableLayoutPanel97.Controls.Add(Me.ComboBox2, 0, 0)
-        Me.TableLayoutPanel97.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel97.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel97.Margin = New System.Windows.Forms.Padding(2)
-        Me.TableLayoutPanel97.Name = "TableLayoutPanel97"
-        Me.TableLayoutPanel97.RowCount = 2
-        Me.TableLayoutPanel97.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel97.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel97.Size = New System.Drawing.Size(78, 24)
-        Me.TableLayoutPanel97.TabIndex = 8
-        Me.TableLayoutPanel97.Visible = False
-        '
-        'ComboBox8
-        '
-        Me.ComboBox8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ComboBox8.DropDownWidth = 150
-        Me.ComboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(0, 12)
-        Me.ComboBox8.Margin = New System.Windows.Forms.Padding(0)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(78, 21)
-        Me.ComboBox8.TabIndex = 6
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ComboBox2.DropDownWidth = 200
-        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(0, 0)
-        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(0)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(78, 21)
-        Me.ComboBox2.TabIndex = 5
-        '
-        'Button76
-        '
-        Me.Button76.BackgroundImage = Global.TELECINE.My.Resources.Resources.cancel
-        Me.Button76.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button76.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button76.FlatAppearance.BorderSize = 0
-        Me.Button76.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.Button76.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button76.Location = New System.Drawing.Point(0, 0)
-        Me.Button76.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button76.Name = "Button76"
-        Me.Button76.Size = New System.Drawing.Size(78, 24)
-        Me.Button76.TabIndex = 7
-        Me.Button76.UseVisualStyleBackColor = True
-        Me.Button76.Visible = False
-        '
-        'Panel32
-        '
-        Me.Panel32.Controls.Add(Me.Panel49)
-        Me.Panel32.Controls.Add(Me.Button21)
-        Me.Panel32.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel32.Location = New System.Drawing.Point(210, 0)
-        Me.Panel32.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel32.Name = "Panel32"
-        Me.Panel32.Size = New System.Drawing.Size(33, 28)
-        Me.Panel32.TabIndex = 16
-        '
-        'Panel49
-        '
-        Me.Panel49.AutoScroll = True
-        Me.Panel49.Controls.Add(Me.TableLayoutPanel14)
-        Me.Panel49.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel49.Location = New System.Drawing.Point(0, 0)
-        Me.Panel49.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel49.Name = "Panel49"
-        Me.Panel49.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Panel49.Size = New System.Drawing.Size(33, 28)
-        Me.Panel49.TabIndex = 58
-        Me.Panel49.Visible = False
-        '
-        'TableLayoutPanel14
-        '
-        Me.TableLayoutPanel14.ColumnCount = 2
-        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel14.Controls.Add(Me.Button87, 0, 0)
-        Me.TableLayoutPanel14.Controls.Add(Me.Button77, 1, 0)
-        Me.TableLayoutPanel14.Controls.Add(Me.NumericUpDown9, 0, 1)
-        Me.TableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel14.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel14.Margin = New System.Windows.Forms.Padding(2)
-        Me.TableLayoutPanel14.Name = "TableLayoutPanel14"
-        Me.TableLayoutPanel14.RowCount = 2
-        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel14.Size = New System.Drawing.Size(33, 28)
-        Me.TableLayoutPanel14.TabIndex = 2
-        '
-        'Button87
-        '
-        Me.Button87.BackgroundImage = Global.TELECINE.My.Resources.Resources.move
-        Me.Button87.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button87.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button87.FlatAppearance.BorderSize = 0
-        Me.Button87.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.Button87.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button87.Location = New System.Drawing.Point(0, 0)
-        Me.Button87.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button87.Name = "Button87"
-        Me.Button87.Size = New System.Drawing.Size(16, 14)
-        Me.Button87.TabIndex = 11
-        Me.Button87.UseVisualStyleBackColor = True
-        '
-        'Button77
-        '
-        Me.Button77.BackgroundImage = Global.TELECINE.My.Resources.Resources.close2
-        Me.Button77.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button77.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button77.FlatAppearance.BorderSize = 0
-        Me.Button77.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.Button77.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button77.Location = New System.Drawing.Point(16, 0)
-        Me.Button77.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button77.Name = "Button77"
-        Me.Button77.Size = New System.Drawing.Size(17, 14)
-        Me.Button77.TabIndex = 8
-        Me.Button77.UseVisualStyleBackColor = True
-        '
-        'NumericUpDown9
-        '
-        Me.NumericUpDown9.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TableLayoutPanel14.SetColumnSpan(Me.NumericUpDown9, 2)
-        Me.NumericUpDown9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.NumericUpDown9.Location = New System.Drawing.Point(2, 16)
-        Me.NumericUpDown9.Margin = New System.Windows.Forms.Padding(2)
-        Me.NumericUpDown9.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.NumericUpDown9.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDown9.Name = "NumericUpDown9"
-        Me.NumericUpDown9.Size = New System.Drawing.Size(29, 16)
-        Me.NumericUpDown9.TabIndex = 12
-        Me.NumericUpDown9.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'Button21
-        '
-        Me.Button21.BackgroundImage = Global.TELECINE.My.Resources.Resources.zoom
-        Me.Button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button21.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button21.FlatAppearance.BorderSize = 0
-        Me.Button21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
-        Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button21.Location = New System.Drawing.Point(0, 0)
-        Me.Button21.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(33, 28)
-        Me.Button21.TabIndex = 11
-        Me.Button21.UseVisualStyleBackColor = True
-        Me.Button21.Visible = False
         '
         'Panel3
         '
@@ -5581,7 +5259,7 @@ Partial Class Form1
         '
         'PictureBox22
         '
-        Me.PictureBox22.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(27, Byte), Integer))
+        Me.PictureBox22.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox22.Image = Nothing
@@ -5592,6 +5270,331 @@ Partial Class Form1
         Me.PictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox22.TabIndex = 59
         Me.PictureBox22.TabStop = False
+        '
+        'TableLayoutPanel7
+        '
+        Me.TableLayoutPanel7.ColumnCount = 6
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel7.Controls.Add(Me.CheckBox4, 3, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.CheckBox19, 4, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.Panel63, 2, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.Panel32, 5, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.Panel65, 0, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.Panel64, 1, 0)
+        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
+        Me.TableLayoutPanel7.RowCount = 1
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(243, 28)
+        Me.TableLayoutPanel7.TabIndex = 1
+        '
+        'CheckBox4
+        '
+        Me.CheckBox4.Appearance = System.Windows.Forms.Appearance.Button
+        Me.CheckBox4.BackgroundImage = Global.TELECINE.My.Resources.Resources.flip_orizontal
+        Me.CheckBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.CheckBox4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CheckBox4.FlatAppearance.BorderSize = 0
+        Me.CheckBox4.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
+        Me.CheckBox4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.CheckBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBox4.Location = New System.Drawing.Point(148, 2)
+        Me.CheckBox4.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(28, 24)
+        Me.CheckBox4.TabIndex = 17
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        Me.CheckBox4.Visible = False
+        '
+        'CheckBox19
+        '
+        Me.CheckBox19.Appearance = System.Windows.Forms.Appearance.Button
+        Me.CheckBox19.BackgroundImage = Global.TELECINE.My.Resources.Resources.flip_vertical
+        Me.CheckBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.CheckBox19.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CheckBox19.FlatAppearance.BorderSize = 0
+        Me.CheckBox19.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
+        Me.CheckBox19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.CheckBox19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBox19.Location = New System.Drawing.Point(180, 2)
+        Me.CheckBox19.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox19.Name = "CheckBox19"
+        Me.CheckBox19.Size = New System.Drawing.Size(28, 24)
+        Me.CheckBox19.TabIndex = 2
+        Me.CheckBox19.UseVisualStyleBackColor = True
+        Me.CheckBox19.Visible = False
+        '
+        'Panel63
+        '
+        Me.Panel63.Controls.Add(Me.Button86)
+        Me.Panel63.Controls.Add(Me.Button75)
+        Me.Panel63.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel63.Location = New System.Drawing.Point(116, 2)
+        Me.Panel63.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel63.Name = "Panel63"
+        Me.Panel63.Size = New System.Drawing.Size(28, 24)
+        Me.Panel63.TabIndex = 13
+        '
+        'Button86
+        '
+        Me.Button86.BackgroundImage = Global.TELECINE.My.Resources.Resources.cam_update
+        Me.Button86.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button86.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button86.FlatAppearance.BorderSize = 0
+        Me.Button86.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.Button86.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button86.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button86.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Button86.Location = New System.Drawing.Point(0, 0)
+        Me.Button86.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button86.Name = "Button86"
+        Me.Button86.Size = New System.Drawing.Size(28, 24)
+        Me.Button86.TabIndex = 8
+        Me.Button86.UseVisualStyleBackColor = True
+        Me.Button86.Visible = False
+        '
+        'Button75
+        '
+        Me.Button75.BackgroundImage = Global.TELECINE.My.Resources.Resources.rotate_right
+        Me.Button75.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button75.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button75.FlatAppearance.BorderSize = 0
+        Me.Button75.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.Button75.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button75.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button75.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Button75.Location = New System.Drawing.Point(0, 0)
+        Me.Button75.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button75.Name = "Button75"
+        Me.Button75.Size = New System.Drawing.Size(28, 24)
+        Me.Button75.TabIndex = 7
+        Me.Button75.UseVisualStyleBackColor = True
+        Me.Button75.Visible = False
+        '
+        'Panel32
+        '
+        Me.Panel32.Controls.Add(Me.Panel49)
+        Me.Panel32.Controls.Add(Me.Button21)
+        Me.Panel32.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel32.Location = New System.Drawing.Point(210, 0)
+        Me.Panel32.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel32.Name = "Panel32"
+        Me.Panel32.Size = New System.Drawing.Size(33, 28)
+        Me.Panel32.TabIndex = 16
+        '
+        'Panel49
+        '
+        Me.Panel49.AutoScroll = True
+        Me.Panel49.Controls.Add(Me.TableLayoutPanel14)
+        Me.Panel49.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel49.Location = New System.Drawing.Point(0, 0)
+        Me.Panel49.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel49.Name = "Panel49"
+        Me.Panel49.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Panel49.Size = New System.Drawing.Size(33, 28)
+        Me.Panel49.TabIndex = 58
+        Me.Panel49.Visible = False
+        '
+        'TableLayoutPanel14
+        '
+        Me.TableLayoutPanel14.ColumnCount = 2
+        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel14.Controls.Add(Me.Button87, 0, 0)
+        Me.TableLayoutPanel14.Controls.Add(Me.Button77, 1, 0)
+        Me.TableLayoutPanel14.Controls.Add(Me.NumericUpDown9, 0, 1)
+        Me.TableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel14.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel14.Margin = New System.Windows.Forms.Padding(2)
+        Me.TableLayoutPanel14.Name = "TableLayoutPanel14"
+        Me.TableLayoutPanel14.RowCount = 2
+        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel14.Size = New System.Drawing.Size(33, 28)
+        Me.TableLayoutPanel14.TabIndex = 2
+        '
+        'Button87
+        '
+        Me.Button87.BackgroundImage = Global.TELECINE.My.Resources.Resources.move
+        Me.Button87.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button87.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button87.FlatAppearance.BorderSize = 0
+        Me.Button87.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.Button87.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button87.Location = New System.Drawing.Point(0, 0)
+        Me.Button87.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button87.Name = "Button87"
+        Me.Button87.Size = New System.Drawing.Size(16, 14)
+        Me.Button87.TabIndex = 11
+        Me.Button87.UseVisualStyleBackColor = True
+        '
+        'Button77
+        '
+        Me.Button77.BackgroundImage = Global.TELECINE.My.Resources.Resources.close2
+        Me.Button77.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button77.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button77.FlatAppearance.BorderSize = 0
+        Me.Button77.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.Button77.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button77.Location = New System.Drawing.Point(16, 0)
+        Me.Button77.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button77.Name = "Button77"
+        Me.Button77.Size = New System.Drawing.Size(17, 14)
+        Me.Button77.TabIndex = 8
+        Me.Button77.UseVisualStyleBackColor = True
+        '
+        'NumericUpDown9
+        '
+        Me.NumericUpDown9.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TableLayoutPanel14.SetColumnSpan(Me.NumericUpDown9, 2)
+        Me.NumericUpDown9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NumericUpDown9.Location = New System.Drawing.Point(2, 16)
+        Me.NumericUpDown9.Margin = New System.Windows.Forms.Padding(2)
+        Me.NumericUpDown9.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.NumericUpDown9.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.NumericUpDown9.Name = "NumericUpDown9"
+        Me.NumericUpDown9.Size = New System.Drawing.Size(29, 16)
+        Me.NumericUpDown9.TabIndex = 12
+        Me.NumericUpDown9.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'Button21
+        '
+        Me.Button21.BackgroundImage = Global.TELECINE.My.Resources.Resources.zoom
+        Me.Button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button21.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button21.FlatAppearance.BorderSize = 0
+        Me.Button21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button21.Location = New System.Drawing.Point(0, 0)
+        Me.Button21.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(33, 28)
+        Me.Button21.TabIndex = 11
+        Me.Button21.UseVisualStyleBackColor = True
+        Me.Button21.Visible = False
+        '
+        'Panel65
+        '
+        Me.Panel65.Controls.Add(Me.TableLayoutPanel97)
+        Me.Panel65.Controls.Add(Me.Button76)
+        Me.Panel65.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel65.Location = New System.Drawing.Point(2, 2)
+        Me.Panel65.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel65.Name = "Panel65"
+        Me.Panel65.Size = New System.Drawing.Size(78, 24)
+        Me.Panel65.TabIndex = 15
+        '
+        'TableLayoutPanel97
+        '
+        Me.TableLayoutPanel97.ColumnCount = 1
+        Me.TableLayoutPanel97.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel97.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11.0!))
+        Me.TableLayoutPanel97.Controls.Add(Me.ComboBox8, 0, 1)
+        Me.TableLayoutPanel97.Controls.Add(Me.ComboBox2, 0, 0)
+        Me.TableLayoutPanel97.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel97.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel97.Margin = New System.Windows.Forms.Padding(2)
+        Me.TableLayoutPanel97.Name = "TableLayoutPanel97"
+        Me.TableLayoutPanel97.RowCount = 2
+        Me.TableLayoutPanel97.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel97.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel97.Size = New System.Drawing.Size(78, 24)
+        Me.TableLayoutPanel97.TabIndex = 8
+        Me.TableLayoutPanel97.Visible = False
+        '
+        'ComboBox8
+        '
+        Me.ComboBox8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ComboBox8.DropDownWidth = 150
+        Me.ComboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox8.FormattingEnabled = True
+        Me.ComboBox8.Location = New System.Drawing.Point(0, 12)
+        Me.ComboBox8.Margin = New System.Windows.Forms.Padding(0)
+        Me.ComboBox8.Name = "ComboBox8"
+        Me.ComboBox8.Size = New System.Drawing.Size(78, 21)
+        Me.ComboBox8.TabIndex = 6
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ComboBox2.DropDownWidth = 200
+        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(0, 0)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(0)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(78, 21)
+        Me.ComboBox2.TabIndex = 5
+        '
+        'Button76
+        '
+        Me.Button76.BackgroundImage = Global.TELECINE.My.Resources.Resources.cancel
+        Me.Button76.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button76.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button76.FlatAppearance.BorderSize = 0
+        Me.Button76.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.Button76.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button76.Location = New System.Drawing.Point(0, 0)
+        Me.Button76.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button76.Name = "Button76"
+        Me.Button76.Size = New System.Drawing.Size(78, 24)
+        Me.Button76.TabIndex = 7
+        Me.Button76.UseVisualStyleBackColor = True
+        Me.Button76.Visible = False
+        '
+        'Panel64
+        '
+        Me.Panel64.Controls.Add(Me.Button98)
+        Me.Panel64.Controls.Add(Me.Button97)
+        Me.Panel64.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel64.Location = New System.Drawing.Point(84, 2)
+        Me.Panel64.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel64.Name = "Panel64"
+        Me.Panel64.Size = New System.Drawing.Size(28, 24)
+        Me.Panel64.TabIndex = 14
+        '
+        'Button98
+        '
+        Me.Button98.BackgroundImage = Global.TELECINE.My.Resources.Resources.cam_on
+        Me.Button98.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button98.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button98.FlatAppearance.BorderSize = 0
+        Me.Button98.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.Button98.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button98.Location = New System.Drawing.Point(0, 0)
+        Me.Button98.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button98.Name = "Button98"
+        Me.Button98.Size = New System.Drawing.Size(28, 24)
+        Me.Button98.TabIndex = 8
+        Me.Button98.UseVisualStyleBackColor = True
+        Me.Button98.Visible = False
+        '
+        'Button97
+        '
+        Me.Button97.BackgroundImage = Global.TELECINE.My.Resources.Resources.rotate_left
+        Me.Button97.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button97.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button97.FlatAppearance.BorderSize = 0
+        Me.Button97.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue
+        Me.Button97.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button97.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button97.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Button97.Location = New System.Drawing.Point(0, 0)
+        Me.Button97.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button97.Name = "Button97"
+        Me.Button97.Size = New System.Drawing.Size(28, 24)
+        Me.Button97.TabIndex = 7
+        Me.Button97.UseVisualStyleBackColor = True
+        Me.Button97.Visible = False
         '
         'Panello_arduino
         '
@@ -6970,20 +6973,11 @@ Partial Class Form1
         CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel30.ResumeLayout(False)
-        Me.Panel31.ResumeLayout(False)
-        CType(Me.PictureBox21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel30.ResumeLayout(False)
         CType(Me.PictureBox29, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel31.ResumeLayout(False)
+        CType(Me.PictureBox21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel96.ResumeLayout(False)
-        Me.TableLayoutPanel7.ResumeLayout(False)
-        Me.Panel63.ResumeLayout(False)
-        Me.Panel64.ResumeLayout(False)
-        Me.Panel65.ResumeLayout(False)
-        Me.TableLayoutPanel97.ResumeLayout(False)
-        Me.Panel32.ResumeLayout(False)
-        Me.Panel49.ResumeLayout(False)
-        Me.TableLayoutPanel14.ResumeLayout(False)
-        CType(Me.NumericUpDown9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel50.ResumeLayout(False)
         Me.Panel57.ResumeLayout(False)
@@ -6998,6 +6992,15 @@ Partial Class Form1
         Me.Panel56.PerformLayout()
         Me.TableLayoutPanel91.ResumeLayout(False)
         CType(Me.PictureBox22, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel7.ResumeLayout(False)
+        Me.Panel63.ResumeLayout(False)
+        Me.Panel32.ResumeLayout(False)
+        Me.Panel49.ResumeLayout(False)
+        Me.TableLayoutPanel14.ResumeLayout(False)
+        CType(Me.NumericUpDown9, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel65.ResumeLayout(False)
+        Me.TableLayoutPanel97.ResumeLayout(False)
+        Me.Panel64.ResumeLayout(False)
         Me.Panello_arduino.ResumeLayout(False)
         Me.Panello_connessione.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
@@ -7219,8 +7222,6 @@ Partial Class Form1
     Friend WithEvents PictureBox18 As PictureBox
     Friend WithEvents PictureBox17 As PictureBox
     Friend WithEvents TableLayoutPanel30 As TableLayoutPanel
-    Friend WithEvents Panel31 As Panel
-    Friend WithEvents PictureBox21 As PictureBox
     Friend WithEvents Panel30 As Panel
     Friend WithEvents PictureBox29 As PictureBox
     Friend WithEvents Panel50 As Panel
@@ -7478,6 +7479,8 @@ Partial Class Form1
     Friend WithEvents Label26 As Label
     Friend WithEvents TrackBar6 As TrackBar
     Friend WithEvents TableLayoutPanel84 As TableLayoutPanel
+    Friend WithEvents Panel31 As Panel
+    Friend WithEvents PictureBox21 As PictureBox
     ' Friend WithEvents PictureBox5 As AForge.Controls.PictureBox
     'Friend WithEvents Label34 As Label
 End Class

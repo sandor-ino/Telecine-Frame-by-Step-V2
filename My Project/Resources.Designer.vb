@@ -763,6 +763,16 @@ Namespace My.Resources
         '''<summary>
         '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property N8NOC() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("N8NOC", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property N8PIC() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("N8PIC", resourceCulture)
@@ -1056,6 +1066,16 @@ Namespace My.Resources
         Friend ReadOnly Property S8GIF() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("S8GIF", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property S8NOC() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("S8NOC", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

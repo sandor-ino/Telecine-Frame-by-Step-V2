@@ -104,7 +104,6 @@ C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\bin\Debug\sv\ZedGraph.resou
 C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\bin\Debug\tr\ZedGraph.resources.dll
 C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\bin\Debug\zh-cn\ZedGraph.resources.dll
 C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\bin\Debug\zh-tw\ZedGraph.resources.dll
-C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\obj\Debug\TELECINE.vbprojAssemblyReference.cache
 C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\obj\Debug\TELECINE.Form1.resources
 C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\obj\Debug\TELECINE.Dialog1.resources
 C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\obj\Debug\TELECINE.Resources.resources
@@ -114,3 +113,4 @@ C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\obj\Debug\TELECINE.vbproj.C
 C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\obj\Debug\TELECINE.exe
 C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\obj\Debug\TELECINE.xml
 C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\obj\Debug\TELECINE.pdb
+C:\Users\SAM_LAP\Documents\Telecine-Frame-by-Step-V2\obj\Debug\TELECINE.vbproj.AssemblyReference.cache
